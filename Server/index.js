@@ -3,6 +3,7 @@ import {connection} from './db/configDb.js'
 import cors from 'cors';
 import bodyParser from 'body-parser'
 import morgan from 'morgan';
+import login from './routes/login.js'
 
 const app = express();
 app.use(bodyParser.urlencoded({extended:true}));
@@ -24,3 +25,5 @@ app.get('/', (req,res) => {
   console.log("Escuchando puerto 3000");
   res.json("todo ok");
 });
+
+app.use(login)
