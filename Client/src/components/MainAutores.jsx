@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
-import '../css/Mains.css'
+import '../css/Main.css'
 
 const MainAutores = () => {
   const [nombre, setNombre] = useState("");
@@ -53,7 +53,7 @@ const MainAutores = () => {
 
   const putAutor = async () => {
     try {
-      const response = await axios.put("http://localhost:3000/autores/", {
+      const response = await axios.put("http://localhost:3000/autores", {
         id_autor,
         nombre,
         apellido,

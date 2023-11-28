@@ -4,6 +4,9 @@ import cors from 'cors';
 import bodyParser from 'body-parser'
 import morgan from 'morgan';
 import login from './routes/login.js'
+import autores from './routes/autores.js'
+import libros from './routes/libros.js'
+import editoriales from './routes/editoriales.js'
 
 const app = express();
 app.use(bodyParser.urlencoded({extended:true}));
@@ -27,3 +30,6 @@ app.get('/', (req,res) => {
 });
 
 app.use(login)
+app.use(editoriales)
+app.use(autores)
+app.use(libros)

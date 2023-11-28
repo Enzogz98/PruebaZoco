@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
-import '../css/Mains.css'
+import '../css/Main.css'
 
 const MainLibros = () => {
   const [titulo, setTitulo] = useState("");
-  const [id_autor, setID_autor] = useState("");
-  const [id_editorial, setIdEditorial] = useState(true);
+  const [id_autor, setID_autor] = useState(0);
+  const [id_editorial, setIdEditorial] = useState(0);
   const [anio_publicacion, setAño] = useState("");
   const [id_libro, setId] = useState(0);
   const [datos, setDatos] = useState([]);
@@ -41,7 +41,7 @@ const MainLibros = () => {
         anio_publicacion,
       });
       if (response.status === 200) {
-        alert("Se agregó el empleado correctamente");
+        alert("Se agregó el libro correctamente");
         mostrarLibro();
         cancelar();
       } else {
@@ -61,7 +61,7 @@ const MainLibros = () => {
         anio_publicacion,
       })
       if (response.status === 200) {
-        alert("se modificó correctamente el empleado")
+        alert("se modificó correctamente el libro")
         mostrarLibro()
         cancelar()
       } else {
@@ -72,18 +72,17 @@ const MainLibros = () => {
     }
   }
   const bajaLibro = async (dato) => {
-    setId(dato.id_libro)
     try {
-      const response = await axios.delete(`http://localhost:3000/libros/${id_libro}`);
+      const response = await axios.delete(`http://localhost:3000/libros/${dato.id_libro}`);
 
       if (response.status === 200) {
-        alert("El empleado se dio de baja correctamente");
+        alert("El libro se eliminó correctamente");
         mostrarLibro();
       } else {
-        alert("Ocurrió un error al dar de baja al empleado");
+        alert("Ocurrió un error al eliminar al libro");
       }
     } catch (error) {
-      console.error("Error al eliminar el empleado", error);
+      console.error("Error al eliminar el libro", error);
     }
   };
   const cancelar = () => {
@@ -142,7 +141,7 @@ const MainLibros = () => {
         <br />
 
         <button onClick={postLibro} className="agregar-libro-btn">
-          Agregar empleados
+          Agregar libro
         </button>
         <button onClick={putLibro}>Editar</button>
         <button onClick={() => cancelar()} className="agregar-libro-btn">
@@ -151,7 +150,7 @@ const MainLibros = () => {
       </div>
 
       <div className="lista">
-        <h1>Lista de Empleados</h1>
+        <h1>Lista de Libros</h1>
         <div className="card-container">
           {datos.length > 0 ? (
             datos.map((dato) => (
@@ -176,7 +175,7 @@ const MainLibros = () => {
                     className="btn-libro"
                     onClick={() => bajaLibro(dato)}
                   >
-                    Dar de baja empleado
+                    Dar de baja libro
                   </Button>
                 </Card.Body>
               </Card>
