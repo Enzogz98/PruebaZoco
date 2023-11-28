@@ -1,0 +1,26 @@
+.contenedor-footer{
+    height: 80px;
+    background-color: rgb(0, 0, 0);
+    color: aliceblue;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    bottom: 0;
+}
+
+.contenedor-footer h6{
+    margin-top: 10px;
+    position: absolute;
+    left: calc(6% - 50px);
+}
+
+.contenedor-footer img{
+    width: 40px;
+    position: absolute;
+    left: calc(50% - 50px);
+}
+
+.contenedor-footer a{
+    position: absolute;
+    left: calc(90% - 50px);
+}

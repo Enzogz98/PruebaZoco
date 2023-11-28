@@ -1,0 +1,13 @@
+.Navbar{
+    background-color: rgb(164, 182, 219);
+  
+  
+  }
+  
+  .contenedor-navbar{
+    position:sticky;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
