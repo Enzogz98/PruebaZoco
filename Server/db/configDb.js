@@ -1,14 +1,13 @@
-import mysql from 'mysql'
+const mysql = require("mysql");
 
-export const connection = mysql.createConnection({
-    host: process.env.DB_HOST || "localhost",
-    user: process.env.DB_USER || "root",
-    password: process.env.DB_PASS || "root",
-    database: process.env.DB_NAME || "testing",
-    port: process.env.DB_PORT || 3306,
+const connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "root",
+    database: "testing",
   });
   
- export const queryDatabase = (query, values)=>{
+  const queryDatabase = (query, values)=>{
     return new Promise((resolve,reject)=>{
         console.log(query,values)
         connection.query(query, values,(error, rows)=>{
@@ -22,7 +21,11 @@ export const connection = mysql.createConnection({
     });
 };
 
-export const consultaTodosDatabase = (query)=>{
+
+
+
+
+const consultaTodosDatabase = (query)=>{
     return new Promise((resolve,reject)=>{
         console.log(query)
         connection.query(query,(error, rows)=>{
@@ -34,5 +37,8 @@ export const consultaTodosDatabase = (query)=>{
             }
         });
     });
-    
 };
+
+
+  
+  module.exports ={connection,queryDatabase,consultaTodosDatabase}

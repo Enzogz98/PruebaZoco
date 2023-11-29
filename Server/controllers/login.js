@@ -1,6 +1,6 @@
-import {queryDatabase} from '../db/configDb.js'
+const { queryDatabase } = require('../db/configDb.js');
 
-export const login =async (req,res) =>{
+ const login =async (req,res) =>{
     try{
         const{usuario,pass}=req.body
         console.log('solicitud frontend-->',req.body)
@@ -13,3 +13,5 @@ export const login =async (req,res) =>{
         res.status(500).json({error:'Error al realizar la consulta'})
     }
 }
+
+module.exports={login}

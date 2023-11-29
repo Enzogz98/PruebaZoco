@@ -1,6 +1,7 @@
-import { consultaTodosDatabase, queryDatabase } from '../db/configDb.js';
+const { consultaTodosDatabase, queryDatabase } = require('../db/configDb.js');
 
-export const mostrarAutores = async (req, res) => {
+
+const mostrarAutores = async (req, res) => {
     try {
         console.log("Solicitud frontend ----> datos autores");
         const query = "SELECT * FROM autores";
@@ -12,7 +13,7 @@ export const mostrarAutores = async (req, res) => {
     }
 };
 
-export const agregarAutor = async (req, res) => {
+ const agregarAutor = async (req, res) => {
     try {
         const {id_autor, nombre, apellido, nacionalidad } = req.body;
         console.log("Solicitud frontend ----->", req.body);
@@ -26,7 +27,7 @@ export const agregarAutor = async (req, res) => {
     }
 };
 
-export const editarAutor = async (req, res) => {
+ const editarAutor = async (req, res) => {
     try {
         const { id_autor, nombre, apellido, nacionalidad } = req.body;
         console.log("Solicitud frontend ----->", req.body);
@@ -40,7 +41,7 @@ export const editarAutor = async (req, res) => {
     }
 };
 
-export const eliminarAutor = async (req, res) => {
+ const eliminarAutor = async (req, res) => {
     try {
         const { id_autor } = req.params;
         console.log("Solicitud frontend ----->", id_autor);
@@ -55,3 +56,5 @@ export const eliminarAutor = async (req, res) => {
         res.status(500).json({ error: "Error al realizar la consulta" });
     }
 };
+
+module.exports={agregarAutor,mostrarAutores,editarAutor,eliminarAutor}

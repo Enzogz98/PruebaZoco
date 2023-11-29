@@ -1,5 +1,5 @@
-import {Router} from 'express'
-import {mostrarLibros,agregarLibro,editarLibro,eliminarLibro} from '../controllers/libros.js'
+const {Router} =require('express')
+const {mostrarLibros,agregarLibro,editarLibro,eliminarLibro} =require('../controllers/libros.js')
 
 const router = Router()
 
@@ -8,4 +8,4 @@ router.post('/libros', agregarLibro)
 router.put('/libros', editarLibro)
 router.delete('/libros/:id_libro', eliminarLibro)
 
-export default router
+module.exports=router

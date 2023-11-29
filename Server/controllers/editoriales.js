@@ -1,6 +1,6 @@
-import { consultaTodosDatabase, queryDatabase } from '../db/configDb.js';
+const { consultaTodosDatabase, queryDatabase } = require('../db/configDb.js');
 
-export const mostrarEditoriales = async (req, res) => {
+const mostrarEditoriales = async (req, res) => {
     try {
         console.log("Solicitud frontend ----> datos editoriales");
         const query = "SELECT * FROM editoriales";
@@ -12,7 +12,7 @@ export const mostrarEditoriales = async (req, res) => {
     }
 };
 
-export const agregarEditorial = async (req, res) => {
+const agregarEditorial = async (req, res) => {
     try {
         const {id_editorial, nombre, direccion, telefono } = req.body;
         console.log("Solicitud frontend ----->", req.body);
@@ -26,7 +26,7 @@ export const agregarEditorial = async (req, res) => {
     }
 };
 
-export const editarEditorial = async (req, res) => {
+const editarEditorial = async (req, res) => {
     try {
         const { id_editorial, nombre, direccion, telefono } = req.body;
         console.log("Solicitud frontend ----->", req.body);
@@ -40,7 +40,7 @@ export const editarEditorial = async (req, res) => {
     }
 };
 
-export const eliminarEditorial = async (req, res) => {
+const eliminarEditorial = async (req, res) => {
     try {
         const { id_editorial } = req.params;
         console.log("Solicitud frontend ----->", id_editorial);
@@ -55,3 +55,5 @@ export const eliminarEditorial = async (req, res) => {
         res.status(500).json({ error: "Error al realizar la consulta" });
     }
 };
+
+module.exports={mostrarEditoriales,agregarEditorial,editarEditorial,eliminarEditorial}

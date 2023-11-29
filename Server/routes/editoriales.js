@@ -1,5 +1,5 @@
-import {Router} from 'express'
-import {mostrarEditoriales,agregarEditorial,editarEditorial,eliminarEditorial} from '../controllers/editoriales.js'
+const {Router} =require('express')
+const{mostrarEditoriales,agregarEditorial,editarEditorial,eliminarEditorial} =require('../controllers/editoriales.js')
 
 const router = Router()
 
@@ -8,4 +8,4 @@ router.post('/editoriales', agregarEditorial)
 router.put('/editoriales', editarEditorial)
 router.delete('/editoriales/:id_editorial', eliminarEditorial)
 
-export default router
+module.exports=router
