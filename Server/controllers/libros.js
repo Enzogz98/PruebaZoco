@@ -1,6 +1,6 @@
-import { consultaTodosDatabase, queryDatabase } from '../db/configDb.js';
+const { consultaTodosDatabase, queryDatabase } = require('../db/configDb.js');
 
-export const mostrarLibros = async (req, res) => {
+ const mostrarLibros = async (req, res) => {
     try {
         console.log("Solicitud frontend ----> datos libros");
         const query = "SELECT * FROM libros";
@@ -12,7 +12,7 @@ export const mostrarLibros = async (req, res) => {
     }
 };
 
-export const agregarLibro = async (req, res) => {
+ const agregarLibro = async (req, res) => {
     try {
         const {id_libro, titulo, id_autor, id_editorial, anio_publicacion } = req.body;
         console.log("Solicitud frontend ----->", req.body);
@@ -26,7 +26,7 @@ export const agregarLibro = async (req, res) => {
     }
 };
 
-export const editarLibro = async (req, res) => {
+const editarLibro = async (req, res) => {
     try {
         const { id_libro, titulo, id_autor, id_editorial, anio_publicacion } = req.body;
         console.log("Solicitud frontend ----->", req.body);
@@ -40,7 +40,7 @@ export const editarLibro = async (req, res) => {
     }
 };
 
-export const eliminarLibro = async (req, res) => {
+ const eliminarLibro = async (req, res) => {
     try {
         const { id_libro } = req.params;
         console.log("Solicitud frontend ----->", id_libro);
@@ -55,3 +55,5 @@ export const eliminarLibro = async (req, res) => {
         res.status(500).json({ error: "Error al realizar la consulta" });
     }
 };
+
+module.exports={mostrarLibros,editarLibro,agregarLibro,eliminarLibro}

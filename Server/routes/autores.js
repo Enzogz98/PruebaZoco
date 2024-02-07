@@ -1,5 +1,5 @@
-import {Router} from 'express'
-import {mostrarAutores, agregarAutor, editarAutor, eliminarAutor} from '../controllers/autores.js'
+const {Router} =require('express')
+const{mostrarAutores, agregarAutor, editarAutor, eliminarAutor}=require('../controllers/autores.js')
 
 const router = Router()
 
@@ -8,4 +8,4 @@ router.post("/autores", agregarAutor)
 router.put("/autores", editarAutor)
 router.delete('/autores/:id_autor', eliminarAutor)
 
-export default router
+module.exports=router

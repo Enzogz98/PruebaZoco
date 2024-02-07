@@ -1,4 +1,4 @@
-import mysql from 'mysql'
+const mysql = require("mysql");
 
 export const connection = mysql.createConnection({
     host: process.env.DB_HOST || "borci3zcz6t8xhrki1g5-mysql.services.clever-cloud.com",
@@ -8,7 +8,7 @@ export const connection = mysql.createConnection({
     port: process.env.DB_PORT || 3306,
   });
   
- export const queryDatabase = (query, values)=>{
+  const queryDatabase = (query, values)=>{
     return new Promise((resolve,reject)=>{
         console.log(query,values)
         connection.query(query, values,(error, rows)=>{
@@ -22,7 +22,11 @@ export const connection = mysql.createConnection({
     });
 };
 
-export const consultaTodosDatabase = (query)=>{
+
+
+
+
+const consultaTodosDatabase = (query)=>{
     return new Promise((resolve,reject)=>{
         console.log(query)
         connection.query(query,(error, rows)=>{
@@ -34,5 +38,8 @@ export const consultaTodosDatabase = (query)=>{
             }
         });
     });
-    
 };
+
+
+  
+  module.exports ={connection,queryDatabase,consultaTodosDatabase}
