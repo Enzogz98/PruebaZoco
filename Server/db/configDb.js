@@ -1,10 +1,10 @@
 import mysql from 'mysql'
 
 export const connection = mysql.createConnection({
-    host: process.env.DB_HOST || "localhost",
-    user: process.env.DB_USER || "root",
-    password: process.env.DB_PASS || "root",
-    database: process.env.DB_NAME || "testing",
+    host: process.env.DB_HOST || "borci3zcz6t8xhrki1g5-mysql.services.clever-cloud.com",
+    user: process.env.DB_USER || "ubafmq4ypwbbc65r",
+    password: process.env.DB_PASS || "6nYbdLfjrZD66kFobA8E",
+    database: process.env.DB_NAME || "borci3zcz6t8xhrki1g5",
     port: process.env.DB_PORT || 3306,
   });
   
