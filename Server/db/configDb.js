@@ -1,6 +1,6 @@
 const mysql = require("mysql");
 
-export const connection = mysql.createConnection({
+const connection = mysql.createConnection({
     host: process.env.DB_HOST || "borci3zcz6t8xhrki1g5-mysql.services.clever-cloud.com",
     user: process.env.DB_USER || "ubafmq4ypwbbc65r",
     password: process.env.DB_PASS || "6nYbdLfjrZD66kFobA8E",
