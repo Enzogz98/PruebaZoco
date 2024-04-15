@@ -1,30 +1,15 @@
-import React from "react";
-import { useEffect, useState } from 'react';
+import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { TfiEmail, TfiLock } from "react-icons/tfi";
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import '../css/MainLogin.css';
 
-
-
 const MainLogin = () => {
   const [usuario, setUsuario] = useState("");
   const [pass, setPass] = useState("");
   const navigate = useNavigate();
-  const [data, setData] = useState();
   const [mostrarP, setMostrarP] = useState(false);
-
-  useEffect(() => {
-    if (data) {
-      if (data.length > 0) {
-        localStorage.setItem("userData", JSON.stringify(data));
-         navigate('/home'); 
-      } else {
-        alert("error")
-      }
-    }
-  }, [data, navigate]);
 
   const login = async () => {
     try {
@@ -33,15 +18,16 @@ const MainLogin = () => {
         pass,
       });
       if (response.status === 200) {
-        setData(response.data);
+        const token = response.data.token;
+        sessionStorage.setItem("token", token);
+        navigate('/home'); 
       } else {
         console.error("Error en la respuesta:", response.data.error);
-        alert("error")
+        alert("Error al iniciar sesión");
       }
     } catch (error) {
       console.error("Error al realizar la petición: ", error.message);
-      alert("error")
-
+      alert("Error al realizar la petición");
     }
   };
 

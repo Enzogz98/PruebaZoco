@@ -74,7 +74,7 @@ const MainLibros = () => {
   }
   const bajaLibro = async (dato) => {
     try {
-      const response = await axios.delete(`http://localhost:3000/libros/${dato.id_libro}`);
+      const response = await axios.delete(`http://localhost:3000/${dato.id_libro}`);
 
       if (response.status === 200) {
         alert("El libro se eliminó correctamente");
